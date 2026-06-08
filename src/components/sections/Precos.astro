@@ -1,0 +1,130 @@
+---
+const waNumber = import.meta.env.PUBLIC_WA_NUMBER ?? '';
+const waMessage = import.meta.env.PUBLIC_WA_MESSAGE ?? '';
+const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
+
+interface Plano {
+  nome: string;
+  preco: string;
+  descricao: string;
+  ctaTexto: string;
+  destaque?: boolean;
+  badge?: string;
+}
+
+const planos: Plano[] = [
+  {
+    nome: 'Infração Média',
+    preco: 'R$ 40,00',
+    descricao: 'Recurso administrativo para infrações de natureza média.',
+    ctaTexto: 'Quero Recorrer',
+  },
+  {
+    nome: 'Infração Grave',
+    preco: 'R$ 80,00',
+    descricao: 'Recurso administrativo para infrações de natureza grave.',
+    ctaTexto: 'Quero Recorrer',
+    destaque: true,
+    badge: 'Mais Solicitado',
+  },
+  {
+    nome: 'Infração Gravíssima',
+    preco: 'R$ 120,00',
+    descricao: 'Recurso administrativo para infrações gravíssimas sem efeito suspensivo.',
+    ctaTexto: 'Quero Recorrer',
+  },
+];
+
+const nota =
+  'Processos com efeito suspensivo, suspensão (PSDD), cassação (PCDD) e outros casos específicos são orçados individualmente após análise gratuita. Nenhuma surpresa, sempre transparência.';
+---
+
+<section
+  id="precos"
+  class="section-py"
+  style="background-color: var(--t-surface-alt);"
+>
+  <div class="container-wide">
+    <div class="text-center mb-4 container-content mx-auto">
+      <div
+        class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold mb-6"
+        style="background-color: var(--t-secondary); color: var(--t-dark);"
+      >
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        Análise Inicial Gratuita
+      </div>
+
+      <h2 class="font-serif text-display-sm mb-4" style="color: var(--t-text-main);">
+        Quanto Custa Recorrer da Sua Multa?
+      </h2>
+      <p class="text-body-lg" style="color: var(--t-text-soft);">
+        Valores diretos para os tipos de recurso mais comuns. Para suspensão,
+        cassação e outros casos específicos, a análise inicial é gratuita e o
+        orçamento é apresentado antes de qualquer compromisso.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-8">
+      {planos.map((p) => (
+        <article
+          class="rounded-2xl p-7 flex flex-col items-center text-center relative overflow-hidden transition-shadow duration-200 hover:shadow-xl"
+          style={`background-color: ${p.destaque ? 'var(--t-primary)' : 'var(--t-surface)'}; border: 2px solid ${p.destaque ? 'var(--t-primary)' : 'var(--t-border)'}; transform: ${p.destaque ? 'scale(1.04)' : 'scale(1)'};`}
+        >
+          {p.badge && (
+            <span
+              class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full px-4 py-1 text-xs font-black tracking-wide"
+              style="background-color: var(--t-secondary); color: var(--t-dark);"
+            >
+              {p.badge}
+            </span>
+          )}
+
+          <h3
+            class="font-serif font-bold text-base mb-5 mt-2"
+            style={`color: ${p.destaque ? 'rgba(255,255,255,0.75)' : 'var(--t-text-soft)'};`}
+          >
+            {p.nome}
+          </h3>
+
+          <div class="text-4xl font-black mb-1" style={`color: ${p.destaque ? 'white' : 'var(--t-primary)'};`}>
+            {p.preco}
+          </div>
+          <p class="text-xs mb-5" style={`color: ${p.destaque ? 'rgba(255,255,255,0.5)' : 'var(--t-text-muted)'};`}>
+            por recurso
+          </p>
+
+          <p
+            class="text-sm leading-relaxed mb-6 flex-1"
+            style={`color: ${p.destaque ? 'rgba(255,255,255,0.75)' : 'var(--t-text-soft)'};`}
+          >
+            {p.descricao}
+          </p>
+
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full flex items-center justify-center rounded-xl px-5 py-3.5 text-sm font-bold transition-all duration-200 hover:opacity-90 active:scale-[0.97]"
+            style={`background-color: ${p.destaque ? 'var(--t-secondary)' : 'var(--t-primary)'}; color: ${p.destaque ? 'var(--t-dark)' : 'white'}; min-height: 44px;`}
+            data-tracking="click-whatsapp-precos"
+            data-section="precos"
+          >
+            {p.ctaTexto}
+          </a>
+        </article>
+      ))}
+    </div>
+
+    <div
+      class="max-w-2xl mx-auto rounded-xl p-5 text-center"
+      style="background-color: var(--t-surface); border: 1px solid var(--t-border);"
+    >
+      <p class="text-sm leading-relaxed" style="color: var(--t-text-soft);">
+        <strong style="color: var(--t-text-main);">Casos especiais:</strong>{' '}
+        {nota}
+      </p>
+    </div>
+  </div>
+</section>

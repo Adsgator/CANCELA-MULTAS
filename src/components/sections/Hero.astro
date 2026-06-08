@@ -1,0 +1,172 @@
+---
+const waNumber = import.meta.env.PUBLIC_WA_NUMBER ?? '';
+const waMessage = import.meta.env.PUBLIC_WA_MESSAGE ?? '';
+const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
+
+const benefits = [
+  'Atendimento rápido pelo WhatsApp, sem burocracia',
+  'Recurso para multas médias, graves, gravíssimas e processos suspensivos',
+  'Análise gratuita antes de qualquer pagamento',
+];
+---
+
+<section
+  id="hero-section"
+  class="relative overflow-hidden"
+  style="background-color: var(--t-primary); min-height: 580px;"
+>
+  <!-- Decorações geométricas de fundo -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+    <div
+      class="absolute rounded-full"
+      style="width: 480px; height: 480px; top: -120px; right: -120px; background-color: var(--t-secondary); opacity: 0.08;"
+    ></div>
+    <div
+      class="absolute rounded-full"
+      style="width: 200px; height: 200px; bottom: -60px; left: -40px; background-color: var(--t-secondary); opacity: 0.1;"
+    ></div>
+    <div
+      class="absolute rotate-12"
+      style="width: 60px; height: 200px; top: 40%; right: 15%; background-color: rgba(255,255,255,0.04); border-radius: 12px;"
+    ></div>
+  </div>
+
+  <div class="container-wide section-py relative">
+    <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+      <!-- Coluna esquerda: Copy -->
+      <div>
+        <!-- Badge -->
+        <div
+          class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold mb-6"
+          style="background-color: var(--t-secondary); color: var(--t-dark);"
+        >
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          Análise Inicial Gratuita
+        </div>
+
+        <!-- Título H1 -->
+        <h1 class="font-serif text-display-md text-white mb-5">
+          Levou Multa ou sua CNH Pode ser Suspensa?
+          <span style="color: var(--t-secondary);"> A Gente Resolve.</span>
+        </h1>
+
+        <!-- Subtítulo -->
+        <p class="text-body-lg mb-8" style="color: rgba(255,255,255,0.80);">
+          Somos especialistas em recursos administrativos de trânsito. Analisamos
+          seu caso gratuitamente e aplicamos a estratégia certa para proteger sua
+          carteira de motorista. Atendimento 100% online em todo o Brasil.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-3 mb-10">
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 rounded-xl px-6 py-4 font-bold text-base transition-all duration-200 hover:opacity-90 active:scale-[0.97]"
+            style="background-color: var(--t-secondary); color: var(--t-dark); min-height: 52px;"
+            data-tracking="click-whatsapp-hero-primary"
+            data-section="hero"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+            </svg>
+            Analisar Minha Multa Agora
+          </a>
+
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 rounded-xl px-6 py-4 font-semibold text-base transition-all duration-200 hover:bg-white/10"
+            style="border: 2px solid rgba(255,255,255,0.35); color: white; min-height: 52px;"
+            data-tracking="click-whatsapp-hero-secondary"
+            data-section="hero"
+          >
+            Falar com um Especialista
+          </a>
+        </div>
+
+        <!-- Lista de benefícios -->
+        <ul class="flex flex-col gap-3 list-none p-0 m-0">
+          {benefits.map((b) => (
+            <li class="flex items-start gap-3">
+              <span
+                class="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded-full mt-0.5"
+                style="background-color: var(--t-secondary);"
+                aria-hidden="true"
+              >
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--t-dark);">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              <span class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.82);">{b}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Coluna direita: Card de estatísticas -->
+      <div class="hidden md:flex justify-center items-center">
+        <div class="relative w-full max-w-xs">
+          <!-- Card principal -->
+          <div
+            class="rounded-2xl p-7 w-full"
+            style="background-color: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13); backdrop-filter: blur(8px);"
+          >
+            <!-- Stat 1 -->
+            <div class="flex items-center gap-4 pb-5 mb-5" style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: var(--t-secondary);" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--t-dark);">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-2xl font-black text-white leading-none mb-1">+1.000</p>
+                <p class="text-xs" style="color: rgba(255,255,255,0.6);">recursos analisados</p>
+              </div>
+            </div>
+
+            <!-- Stat 2 -->
+            <div class="flex items-center gap-4 pb-5 mb-5" style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: rgba(255,255,255,0.12);" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: white;">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-2xl font-black text-white leading-none mb-1">CNH</p>
+                <p class="text-xs" style="color: rgba(255,255,255,0.6);">protegida em todo o Brasil</p>
+              </div>
+            </div>
+
+            <!-- Stat 3 -->
+            <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: rgba(255,255,255,0.12);" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: white;">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-2xl font-black text-white leading-none mb-1">100%</p>
+                <p class="text-xs" style="color: rgba(255,255,255,0.6);">atendimento online</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Acentos flutuantes -->
+          <div class="absolute -top-4 -right-4 w-14 h-14 rounded-2xl rotate-12" style="background-color: var(--t-secondary); opacity: 0.85;" aria-hidden="true"></div>
+          <div class="absolute -bottom-3 -left-3 w-9 h-9 rounded-xl -rotate-6" style="background-color: rgba(255,255,255,0.14);" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

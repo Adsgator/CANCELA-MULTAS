@@ -1,0 +1,150 @@
+---
+import GTM from '../components/global/GTM.astro';
+import SkipLink from '../components/global/SkipLink.astro';
+import WhatsAppFloat from '../components/global/WhatsAppFloat.astro';
+import CookieBanner from '../components/islands/CookieBanner.tsx';
+import ScrollAnimations from '../components/islands/ScrollAnimations.tsx';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  schema?: Record<string, unknown>;
+}
+
+const {
+  title = 'Cancela Multas | Recursos de Trânsito e Defesa da CNH Online',
+  description = 'Especialistas em recursos de multas de trânsito e defesa da CNH em todo o Brasil. Proteja sua carteira contra suspensão e cassação com agilidade, transparência e análise técnica detalhada. Análise inicial gratuita!',
+  ogImage = '/og-image.jpg',
+} = Astro.props;
+
+const siteUrl = import.meta.env.PUBLIC_SITE_URL ?? 'https://cancelamulta.com.br';
+const canonical = Astro.props.canonical ?? siteUrl;
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID ?? '';
+
+const defaultSchema: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Cancela Multas',
+  description: 'Especialistas em recursos de multas de trânsito e defesa da CNH em todo o Brasil.',
+  url: siteUrl,
+  telephone: '+5548996729999',
+  priceRange: 'R$40 - R$120',
+  areaServed: { '@type': 'Country', name: 'Brazil' },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: '08:00',
+    closes: '18:00',
+  },
+  serviceType: 'Recursos Administrativos de Multas de Trânsito',
+  sameAs: [],
+};
+
+const finalSchema = Astro.props.schema ?? defaultSchema;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Dark mode: previne flash na primeira carga -->
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          if (stored === 'dark') document.documentElement.classList.add('dark');
+        } catch (_) {}
+      })();
+    </script>
+
+    {GTM_ID && <GTM id={GTM_ID} />}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#144e74" />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="keywords" content="recurso multa, cancelar multa, defesa CNH, lei seca, suspensão CNH, cassação CNH, direito de trânsito, multa de trânsito, processo administrativo multa" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Cancela Multas" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Cancela Multas" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonte Inter via Google Fonts (preconnect + preload) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(finalSchema)} />
+
+    <!-- Google Consent Mode v2 -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500
+      });
+    </script>
+  </head>
+
+  <body>
+    {GTM_ID && (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+        />
+      </noscript>
+    )}
+
+    <SkipLink />
+
+    <slot />
+
+    <WhatsAppFloat />
+
+    <CookieBanner client:idle />
+
+    <ScrollAnimations client:load />
+  </body>
+</html>

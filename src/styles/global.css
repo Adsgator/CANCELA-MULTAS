@@ -1,0 +1,183 @@
+/* ── Fontes ──────────────────────────────── */
+@import "@fontsource-variable/inter";
+
+/* ── Tokens ──────────────────────────────── */
+@import "./tokens.css";
+
+/* ── Tailwind v4 (CSS-first) ─────────────── */
+@import "tailwindcss";
+
+/* ── Dark mode via classe .dark no <html> ── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Tema Tailwind: mapeia tokens → classes ─ */
+@theme inline {
+  /* Fontes */
+  --font-serif: var(--t-font-serif);
+  --font-sans:  var(--t-font-sans);
+
+  /* Cores (habilita bg-primary, text-primary, etc.) */
+  --color-primary:      var(--t-primary);
+  --color-primary-dark: var(--t-primary-dark);
+  --color-secondary:    var(--t-secondary);
+  --color-background:   var(--t-background);
+  --color-surface:      var(--t-surface);
+  --color-surface-alt:  var(--t-surface-alt);
+  --color-dark:         var(--t-dark);
+  --color-text-main:    var(--t-text-main);
+  --color-text-soft:    var(--t-text-soft);
+  --color-text-muted:   var(--t-text-muted);
+  --color-border:       var(--t-border);
+  --color-wa:           var(--t-wa);
+
+  /* Escala tipográfica */
+  --text-display-xl: clamp(2.6rem, 5.5vw, 4.2rem);
+  --text-display-xl--line-height: 1;
+  --text-display-xl--letter-spacing: -0.02em;
+  --text-display-lg: clamp(2rem, 4vw, 3.2rem);
+  --text-display-lg--line-height: 1.05;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-md: clamp(1.8rem, 4vw, 3rem);
+  --text-display-md--line-height: 1.1;
+  --text-display-md--letter-spacing: -0.02em;
+  --text-display-sm: clamp(1.4rem, 2.5vw, 2rem);
+  --text-display-sm--line-height: 1.2;
+  --text-display-sm--letter-spacing: -0.015em;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.75;
+  --text-body-md: 1rem;
+  --text-body-md--line-height: 1.7;
+  --text-body-sm: 0.9rem;
+  --text-body-sm--line-height: 1.6;
+  --text-label: 0.72rem;
+  --text-label--line-height: 1;
+  --text-label--letter-spacing: 0.16em;
+
+  /* Sombras */
+  --shadow-card: 0 2px 16px rgba(20,78,116,0.08);
+  --shadow-card-hover: 0 8px 32px rgba(20,78,116,0.14);
+  --shadow-float: 0 4px 24px rgba(20,78,116,0.18);
+}
+
+/* ── Utilitários de layout ───────────────── */
+@utility section-py {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+
+  @media (min-width: 768px) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@utility container-wide {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 640px) {
+    padding-inline: 1.5rem;
+  }
+}
+
+@utility container-content {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 640px) {
+    padding-inline: 1.5rem;
+  }
+}
+
+/* ── Utilitários tipográficos ─────────────── */
+@utility text-display-md {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+@utility text-display-sm {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+@utility text-body-lg {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.75;
+}
+
+@utility text-text-main {
+  color: var(--t-text-main);
+}
+
+@utility text-text-soft {
+  color: var(--t-text-soft);
+}
+
+@utility text-text-muted {
+  color: var(--t-text-muted);
+}
+
+/* ── Base global ─────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--t-background);
+  color: var(--t-text-main);
+  font-family: var(--t-font-sans);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img, video { max-width: 100%; display: block; }
+
+/* Acessibilidade: foco visível */
+:focus-visible {
+  outline: 3px solid var(--t-secondary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── LENIS ───────────────────────────────────────────────── */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ── ANIMAÇÕES DE ENTRADA (GSAP/ScrollAnimations) ── */
+[data-animate]       { opacity: 0; transform: translateY(30px); }
+[data-animate-left]  { opacity: 0; transform: translateX(-30px); }
+[data-animate-right] { opacity: 0; transform: translateX(30px); }
+[data-animate-scale] { opacity: 0; transform: scale(0.95); }
+[data-animate-item]  { opacity: 0; transform: translateY(20px); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate], [data-animate-left], [data-animate-right],
+  [data-animate-scale], [data-animate-item] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

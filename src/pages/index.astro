@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/sections/Header.astro';
+import Hero from '../components/sections/Hero.astro';
+import Servicos from '../components/sections/Servicos.astro';
+import Diferenciais from '../components/sections/Diferenciais.astro';
+import Precos from '../components/sections/Precos.astro';
+import Faq from '../components/sections/Faq.astro';
+import CtaFinal from '../components/sections/CtaFinal.astro';
+import Footer from '../components/sections/Footer.astro';
+---
+
+<BaseLayout
+  title="Cancela Multas | Recursos de Trânsito e Defesa da CNH Online"
+  description="Especialistas em recursos de multas de trânsito e defesa da CNH em todo o Brasil. Proteja sua carteira contra suspensão e cassação com agilidade, transparência e análise técnica detalhada. Análise inicial gratuita!"
+>
+  <Header />
+
+  <main id="main-content" tabindex="-1">
+    <Hero />
+    <Servicos />
+    <Diferenciais />
+    <Precos />
+    <Faq />
+    <CtaFinal />
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-tracking]');
+    if (!el) return;
+    var action = el.getAttribute('data-tracking');
+    var section = el.getAttribute('data-section');
+    if (action && action.includes('whatsapp')) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'contato_wpp',
+        click_action: action,
+        click_section: section || 'unknown',
+      });
+    }
+  });
+</script>
