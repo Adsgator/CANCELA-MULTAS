@@ -5,39 +5,40 @@
 
 :root {
   /* Cores de marca */
-  --t-primary:      #144e74;
+  --t-primary: #144e74;
   --t-primary-dark: #0f3e5e;
-  --t-secondary:    #edbd24;
+  --t-secondary: #edbd24;
 
   /* Superfícies (tema claro) */
-  --t-background:   #fcfcfc;
-  --t-surface:      #fafafa;
-  --t-surface-alt:  #f0f4f7;
-  --t-dark:         #1a1a1a;
+  --t-background: #fcfcfc;
+  --t-surface: #fafafa;
+  --t-surface-alt: #f0f4f7;
+  --t-dark: #1a1a1a;
+  --t-footer-bg: #0d1f2e;
 
   /* Tipografia (tema claro) */
-  --t-text-main:    #333333;
-  --t-text-soft:    #595959;
-  --t-text-muted:   #808080;
+  --t-text-main: #333333;
+  --t-text-soft: #595959;
+  --t-text-muted: #808080;
 
   /* Bordas (tema claro) */
-  --t-border:       #d8d8d8;
+  --t-border: #d8d8d8;
 
   /* Utilitárias */
-  --t-wa:           #25d366;
+  --t-wa: #25d366;
 
   /* Famílias tipográficas */
-  --t-font-serif: 'Inter Variable', 'Inter', sans-serif;
-  --t-font-sans:  'Inter Variable', 'Inter', sans-serif;
+  --t-font-serif: "Inter Variable", "Inter", sans-serif;
+  --t-font-sans: "Inter Variable", "Inter", sans-serif;
 }
 
 /* ── Dark mode ───────────────────────────── */
 .dark {
-  --t-background:  #121212;
-  --t-surface:     #212121;
+  --t-background: #121212;
+  --t-surface: #212121;
   --t-surface-alt: #303030;
-  --t-text-main:   #e6e6e6;
-  --t-text-soft:   #b3b3b3;
-  --t-text-muted:  #737373;
-  --t-border:      #333333;
+  --t-text-main: #e6e6e6;
+  --t-text-soft: #b3b3b3;
+  --t-text-muted: #737373;
+  --t-border: #333333;
 }

@@ -8,27 +8,27 @@
 //
 // Deve ser usado com client:idle no Layout.
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-type ConsentState = 'pending' | 'accepted' | 'rejected';
+type ConsentState = "pending" | "accepted" | "rejected";
 
 export default function CookieBanner() {
-  const [consent, setConsent] = useState<ConsentState>('pending');
+  const [consent, setConsent] = useState<ConsentState>("pending");
   const prefersReduced = useReducedMotion();
 
   useEffect(() => {
-    const stored = localStorage.getItem('cookie-consent');
-    if (stored === 'accepted' || stored === 'rejected') {
+    const stored = localStorage.getItem("cookie-consent");
+    if (stored === "accepted" || stored === "rejected") {
       setConsent(stored as ConsentState);
-      if (stored === 'accepted') updateConsent(true);
+      if (stored === "accepted") updateConsent(true);
     }
   }, []);
 
   function updateConsent(granted: boolean) {
-    const value = granted ? 'granted' : 'denied';
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('consent', 'update', {
+    const value = granted ? "granted" : "denied";
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("consent", "update", {
         ad_storage: value,
         analytics_storage: value,
         ad_user_data: value,
@@ -38,21 +38,22 @@ export default function CookieBanner() {
   }
 
   function handleAccept() {
-    localStorage.setItem('cookie-consent', 'accepted');
+    localStorage.setItem("cookie-consent", "accepted");
     updateConsent(true);
-    setConsent('accepted');
+    setConsent("accepted");
   }
 
   function handleReject() {
-    localStorage.setItem('cookie-consent', 'rejected');
+    localStorage.setItem("cookie-consent", "rejected");
     updateConsent(false);
-    setConsent('rejected');
+    setConsent("rejected");
   }
 
-  if (consent !== 'pending') return null;
+  if (consent !== "pending") return null;
 
   return (
     <AnimatePresence>
+      {/* biome-ignore lint/a11y/useSemanticElements: motion.div necessário para animação Framer Motion; role=dialog mantido */}
       <motion.div
         role="dialog"
         aria-label="Aviso de cookies"
@@ -64,16 +65,19 @@ export default function CookieBanner() {
         transition={{ duration: 0.3 }}
       >
         <p className="font-sans text-sm text-white/80 leading-relaxed mb-4">
-          Usamos cookies para melhorar sua experiência e para fins de análise e publicidade. Você pode aceitar ou recusar.
+          Usamos cookies para melhorar sua experiência e para fins de análise e publicidade. Você
+          pode aceitar ou recusar.
         </p>
         <div className="flex gap-3">
           <button
+            type="button"
             onClick={handleAccept}
             className="flex-1 bg-primary text-white font-sans text-sm font-medium py-2.5 rounded-sm hover:bg-primary-dark transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             Aceitar
           </button>
           <button
+            type="button"
             onClick={handleReject}
             className="flex-1 border border-white/20 text-white/60 font-sans text-sm py-2.5 rounded-sm hover:text-white hover:border-white/40 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
@@ -92,5 +96,7 @@ export default function CookieBanner() {
 }
 
 declare global {
-  interface Window { gtag: (...args: unknown[]) => void; }
+  interface Window {
+    gtag: (...args: unknown[]) => void;
+  }
 }

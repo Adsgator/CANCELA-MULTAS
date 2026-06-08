@@ -1,10 +1,10 @@
 ---
-import GTM from '../components/global/GTM.astro';
-import SkipLink from '../components/global/SkipLink.astro';
-import WhatsAppFloat from '../components/global/WhatsAppFloat.astro';
-import CookieBanner from '../components/islands/CookieBanner.tsx';
-import ScrollAnimations from '../components/islands/ScrollAnimations.tsx';
-import '../styles/global.css';
+import GTM from "../components/global/GTM.astro";
+import SkipLink from "../components/global/SkipLink.astro";
+import WhatsAppFloat from "../components/global/WhatsAppFloat.astro";
+import CookieBanner from "../components/islands/CookieBanner.tsx";
+import ScrollAnimations from "../components/islands/ScrollAnimations.tsx";
+import "../styles/global.css";
 
 interface Props {
   title?: string;
@@ -15,31 +15,31 @@ interface Props {
 }
 
 const {
-  title = 'Cancela Multas | Recursos de Trânsito e Defesa da CNH Online',
-  description = 'Especialistas em recursos de multas de trânsito e defesa da CNH em todo o Brasil. Proteja sua carteira contra suspensão e cassação com agilidade, transparência e análise técnica detalhada. Análise inicial gratuita!',
-  ogImage = '/og-image.jpg',
+  title = "Cancela Multas | Recursos de Trânsito e Defesa da CNH Online",
+  description = "Especialistas em recursos de multas de trânsito e defesa da CNH em todo o Brasil. Proteja sua carteira contra suspensão e cassação com agilidade, transparência e análise técnica detalhada. Análise inicial gratuita!",
+  ogImage = "/og-image.jpg",
 } = Astro.props;
 
-const siteUrl = import.meta.env.PUBLIC_SITE_URL ?? 'https://cancelamulta.com.br';
+const siteUrl = import.meta.env.PUBLIC_SITE_URL ?? "https://cancelamulta.com.br";
 const canonical = Astro.props.canonical ?? siteUrl;
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID ?? '';
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID ?? "";
 
 const defaultSchema: Record<string, unknown> = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Cancela Multas',
-  description: 'Especialistas em recursos de multas de trânsito e defesa da CNH em todo o Brasil.',
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Cancela Multas",
+  description: "Especialistas em recursos de multas de trânsito e defesa da CNH em todo o Brasil.",
   url: siteUrl,
-  telephone: '+5548996729999',
-  priceRange: 'R$40 - R$120',
-  areaServed: { '@type': 'Country', name: 'Brazil' },
+  telephone: "+5548996729999",
+  priceRange: "R$40 - R$120",
+  areaServed: { "@type": "Country", name: "Brazil" },
   openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    opens: '08:00',
-    closes: '18:00',
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "08:00",
+    closes: "18:00",
   },
-  serviceType: 'Recursos Administrativos de Multas de Trânsito',
+  serviceType: "Recursos Administrativos de Multas de Trânsito",
   sameAs: [],
 };
 
@@ -109,7 +109,7 @@ const finalSchema = Astro.props.schema ?? defaultSchema;
     </noscript>
 
     <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify(finalSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(finalSchema)} />
 
     <!-- Google Consent Mode v2 -->
     <script is:inline>

@@ -8,10 +8,9 @@
 // O número e a mensagem vêm de .env (PUBLIC_WA_NUMBER / PUBLIC_WA_MESSAGE).
 // Formato do número: só dígitos com DDI, ex.: 5511999999999.
 
-const waNumber = import.meta.env.PUBLIC_WA_NUMBER || 'SEUNUMERO';
+const waNumber = import.meta.env.PUBLIC_WA_NUMBER || "SEUNUMERO";
 const waMessage =
-  import.meta.env.PUBLIC_WA_MESSAGE ||
-  'Olá! Vi seu site e gostaria de mais informações.';
+  import.meta.env.PUBLIC_WA_MESSAGE || "Olá! Vi seu site e gostaria de mais informações.";
 const WA_LINK = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
 ---
 

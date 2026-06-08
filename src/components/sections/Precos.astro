@@ -1,6 +1,6 @@
 ---
-const waNumber = import.meta.env.PUBLIC_WA_NUMBER ?? '';
-const waMessage = import.meta.env.PUBLIC_WA_MESSAGE ?? '';
+const waNumber = import.meta.env.PUBLIC_WA_NUMBER ?? "";
+const waMessage = import.meta.env.PUBLIC_WA_MESSAGE ?? "";
 const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
 
 interface Plano {
@@ -14,29 +14,29 @@ interface Plano {
 
 const planos: Plano[] = [
   {
-    nome: 'Infração Média',
-    preco: 'R$ 40,00',
-    descricao: 'Recurso administrativo para infrações de natureza média.',
-    ctaTexto: 'Quero Recorrer',
+    nome: "Infração Média",
+    preco: "R$ 40,00",
+    descricao: "Recurso administrativo para infrações de natureza média.",
+    ctaTexto: "Quero Recorrer",
   },
   {
-    nome: 'Infração Grave',
-    preco: 'R$ 80,00',
-    descricao: 'Recurso administrativo para infrações de natureza grave.',
-    ctaTexto: 'Quero Recorrer',
+    nome: "Infração Grave",
+    preco: "R$ 80,00",
+    descricao: "Recurso administrativo para infrações de natureza grave.",
+    ctaTexto: "Quero Recorrer",
     destaque: true,
-    badge: 'Mais Solicitado',
+    badge: "Mais Solicitado",
   },
   {
-    nome: 'Infração Gravíssima',
-    preco: 'R$ 120,00',
-    descricao: 'Recurso administrativo para infrações gravíssimas sem efeito suspensivo.',
-    ctaTexto: 'Quero Recorrer',
+    nome: "Infração Gravíssima",
+    preco: "R$ 120,00",
+    descricao: "Recurso administrativo para infrações gravíssimas sem efeito suspensivo.",
+    ctaTexto: "Quero Recorrer",
   },
 ];
 
 const nota =
-  'Processos com efeito suspensivo, suspensão (PSDD), cassação (PCDD) e outros casos específicos são orçados individualmente após análise gratuita. Nenhuma surpresa, sempre transparência.';
+  "Processos com efeito suspensivo, suspensão (PSDD), cassação (PCDD) e outros casos específicos são orçados individualmente após análise gratuita. Nenhuma surpresa, sempre transparência.";
 ---
 
 <section

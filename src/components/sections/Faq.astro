@@ -1,32 +1,32 @@
 ---
-const waNumber = import.meta.env.PUBLIC_WA_NUMBER ?? '';
-const waMessage = import.meta.env.PUBLIC_WA_MESSAGE ?? '';
+const waNumber = import.meta.env.PUBLIC_WA_NUMBER ?? "";
+const waMessage = import.meta.env.PUBLIC_WA_MESSAGE ?? "";
 const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
 
 const perguntas = [
   {
-    q: 'Toda multa pode ser cancelada?',
-    a: 'Não. Cada caso é analisado individualmente. Existem multas com chances maiores de sucesso devido a erros técnicos, falhas no auto de infração ou problemas no processo administrativo. Por isso fazemos uma análise técnica antes de qualquer recurso.',
+    q: "Toda multa pode ser cancelada?",
+    a: "Não. Cada caso é analisado individualmente. Existem multas com chances maiores de sucesso devido a erros técnicos, falhas no auto de infração ou problemas no processo administrativo. Por isso fazemos uma análise técnica antes de qualquer recurso.",
   },
   {
-    q: 'Vale a pena recorrer da multa?',
-    a: 'Sim, principalmente quando há risco de perda da CNH, pontos acumulados, multa de valor alto ou impacto direto na sua renda. O recurso pode evitar prejuízos financeiros e administrativos significativos.',
+    q: "Vale a pena recorrer da multa?",
+    a: "Sim, principalmente quando há risco de perda da CNH, pontos acumulados, multa de valor alto ou impacto direto na sua renda. O recurso pode evitar prejuízos financeiros e administrativos significativos.",
   },
   {
-    q: 'Vocês garantem vitória no recurso?',
-    a: 'Não trabalhamos com promessas irreais. Fazemos uma análise técnica completa e aplicamos a melhor estratégia disponível para aumentar as chances de sucesso. O resultado final depende dos órgãos competentes.',
+    q: "Vocês garantem vitória no recurso?",
+    a: "Não trabalhamos com promessas irreais. Fazemos uma análise técnica completa e aplicamos a melhor estratégia disponível para aumentar as chances de sucesso. O resultado final depende dos órgãos competentes.",
   },
   {
-    q: 'Preciso ir até um escritório?',
-    a: 'Não. Todo o atendimento e envio de documentos é feito online pelo WhatsApp ou e-mail. Atendemos motoristas de qualquer estado sem que você precise sair de casa.',
+    q: "Preciso ir até um escritório?",
+    a: "Não. Todo o atendimento e envio de documentos é feito online pelo WhatsApp ou e-mail. Atendemos motoristas de qualquer estado sem que você precise sair de casa.",
   },
   {
-    q: 'Posso continuar dirigindo durante o processo?',
-    a: 'Na maioria dos casos, sim. Enquanto houver possibilidade de defesa e o processo estiver em andamento, o motorista normalmente mantém o direito de dirigir. Verificamos isso já na análise inicial.',
+    q: "Posso continuar dirigindo durante o processo?",
+    a: "Na maioria dos casos, sim. Enquanto houver possibilidade de defesa e o processo estiver em andamento, o motorista normalmente mantém o direito de dirigir. Verificamos isso já na análise inicial.",
   },
   {
-    q: 'Quanto tempo demora um recurso?',
-    a: 'O prazo varia conforme o órgão responsável e a etapa do processo. Em média, pode levar de algumas semanas a alguns meses. Você é informado sobre o andamento em cada etapa.',
+    q: "Quanto tempo demora um recurso?",
+    a: "O prazo varia conforme o órgão responsável e a etapa do processo. Em média, pode levar de algumas semanas a alguns meses. Você é informado sobre o andamento em cada etapa.",
   },
 ];
 ---

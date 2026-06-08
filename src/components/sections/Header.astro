@@ -1,6 +1,6 @@
 ---
-const waNumber = import.meta.env.PUBLIC_WA_NUMBER ?? '';
-const waMessage = import.meta.env.PUBLIC_WA_MESSAGE ?? '';
+const waNumber = import.meta.env.PUBLIC_WA_NUMBER ?? "";
+const waMessage = import.meta.env.PUBLIC_WA_MESSAGE ?? "";
 const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
 ---
 
