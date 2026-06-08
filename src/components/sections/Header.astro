@@ -15,43 +15,23 @@ const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
     <a
       href="/"
       aria-label="Cancela Multas — Página inicial"
-      class="flex items-center gap-1 flex-shrink-0"
+      class="flex items-center flex-shrink-0"
     >
-      <span
-        class="font-serif font-black text-xl md:text-2xl tracking-tight select-none"
-        style="color: var(--t-primary);"
-      >
-        CANCELA
-      </span>
-      <span
-        class="font-serif font-black text-xl md:text-2xl tracking-tight select-none"
-        style="color: var(--t-secondary);"
-      >
-        MULTAS
-      </span>
+      <img
+        src="/logo-cancela-multas.svg"
+        alt="Cancela Multas"
+        width="240"
+        height="48"
+        class="h-12 w-auto"
+      />
     </a>
 
-    <!-- Centro: horário (desktop) -->
-    <div
-      class="hidden md:flex items-center gap-2 text-sm font-medium"
-      style="color: var(--t-text-soft);"
-    >
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <polyline points="12 6 12 12 16 14" />
-      </svg>
-      <span>Atendimento: Seg a Sáb</span>
-    </div>
+    <!-- Centro: links de âncora (desktop) -->
+    <nav class="hidden md:flex items-center gap-8" aria-label="Navegação principal">
+      <a href="#servicos" class="link-underline text-sm font-medium" style="color: var(--t-text-soft);">Serviços</a>
+      <a href="#precos" class="link-underline text-sm font-medium" style="color: var(--t-text-soft);">Preços</a>
+      <a href="#faq" class="link-underline text-sm font-medium" style="color: var(--t-text-soft);">FAQ</a>
+    </nav>
 
     <!-- CTA WhatsApp -->
     <a
