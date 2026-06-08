@@ -46,12 +46,11 @@ const currentYear = new Date().getFullYear();
       justify-content: space-between;
       max-width: 100%;
     }
-    .logo { display: flex; align-items: center; gap: 4px; text-decoration: none; }
-    .logo .primary { font-family: var(--t-font-sans); font-weight: 900; font-size: 1.1rem; color: var(--t-primary); }
-    .logo .secondary { font-family: var(--t-font-sans); font-weight: 900; font-size: 1.1rem; color: #edbd24; }
+    .logo { display: flex; align-items: center; text-decoration: none; }
+    .logo img { height: 36px; width: auto; }
     .back { font-size: 0.82rem; color: var(--t-text-soft); text-decoration: none; }
     .back:hover { color: var(--t-primary); }
-    main { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; }
+    main { max-width: 720px; margin: 0 auto; padding: 80px 24px 80px; }
     h1 { font-family: var(--t-font-sans); font-size: 2rem; font-weight: 800; color: var(--t-text-main); margin-bottom: 8px; }
     .updated { font-size: 0.8rem; color: var(--t-text-muted); margin-bottom: 48px; }
     h2 { font-family: var(--t-font-sans); font-size: 1.1rem; font-weight: 700; color: var(--t-primary); margin-top: 40px; margin-bottom: 12px; }
@@ -71,8 +70,7 @@ const currentYear = new Date().getFullYear();
 <body>
   <header>
     <a href="/" aria-label="Cancela Multas — Início" class="logo">
-      <span class="primary">CANCELA</span>
-      <span class="secondary">MULTAS</span>
+      <img src="/logo-cancela-multas.svg" alt="Cancela Multas" width="160" height="36" />
     </a>
     <a href="/" class="back">← Voltar</a>
   </header>
