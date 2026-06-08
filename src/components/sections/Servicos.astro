@@ -61,7 +61,7 @@ const servicos: Servico[] = [
   style="background-color: var(--t-surface-alt);"
 >
   <div class="container-wide">
-    <div class="text-center mb-12 container-content mx-auto">
+    <div class="text-center mb-8 sm:mb-12 container-content mx-auto">
       <h2 class="font-serif text-display-sm mb-4" style="color: var(--t-text-main);">
         Qual é a Sua Situação?
       </h2>
@@ -71,10 +71,10 @@ const servicos: Servico[] = [
       </p>
     </div>
 
-    <div class="grid sm:grid-cols-2 gap-6">
+    <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
       {servicos.map((s) => (
         <article
-          class="rounded-2xl p-7 flex flex-col transition-shadow duration-200 hover:shadow-lg"
+          class="rounded-2xl p-5 sm:p-7 flex flex-col transition-shadow duration-200 hover:shadow-lg"
           style={`background-color: var(--t-surface); border: 2px solid ${s.destaque ? 'var(--t-primary)' : 'var(--t-border)'}; position: relative; overflow: hidden;`}
         >
           {s.destaque && (
@@ -99,7 +99,7 @@ const servicos: Servico[] = [
             />
           </div>
 
-          <h3 class="font-serif font-bold text-lg mb-3" style="color: var(--t-text-main);">
+          <h3 class="font-serif font-bold text-base sm:text-lg mb-3" style="color: var(--t-text-main);">
             {s.nome}
           </h3>
 

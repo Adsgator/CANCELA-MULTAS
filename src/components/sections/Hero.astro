@@ -13,7 +13,7 @@ const benefits = [
 <section
   id="hero-section"
   class="relative overflow-hidden"
-  style="background-color: var(--t-primary); min-height: 580px;"
+  style="background-color: var(--t-primary); min-height: clamp(420px, 80vh, 680px);"
 >
   <!-- Decorações geométricas de fundo -->
   <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
@@ -32,13 +32,13 @@ const benefits = [
   </div>
 
   <div class="container-wide section-py relative">
-    <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-16 items-center">
 
       <!-- Coluna esquerda: Copy -->
       <div>
         <!-- Badge -->
         <div
-          class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold mb-6"
+          class="inline-flex items-center gap-2 rounded-full px-3 py-1 sm:px-4 sm:py-1.5 text-xs sm:text-sm font-bold mb-5 sm:mb-6"
           style="background-color: var(--t-secondary); color: var(--t-dark);"
         >
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -48,26 +48,26 @@ const benefits = [
         </div>
 
         <!-- Título H1 -->
-        <h1 class="font-serif text-display-md text-white mb-5">
+        <h1 class="font-serif text-display-md text-white mb-4 sm:mb-5">
           Levou Multa ou sua CNH Pode ser Suspensa?
           <span style="color: var(--t-secondary);"> A Gente Resolve.</span>
         </h1>
 
         <!-- Subtítulo -->
-        <p class="text-body-lg mb-8" style="color: rgba(255,255,255,0.80);">
+        <p class="text-body-lg mb-6 sm:mb-8" style="color: rgba(255,255,255,0.80);">
           Somos especialistas em recursos administrativos de trânsito. Analisamos
           seu caso gratuitamente e aplicamos a estratégia certa para proteger sua
           carteira de motorista. Atendimento 100% online em todo o Brasil.
         </p>
 
         <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-3 mb-10">
+        <div class="flex flex-col sm:flex-row gap-3 mb-7 sm:mb-10">
           <a
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 rounded-xl px-6 py-4 font-bold text-base transition-all duration-200 hover:opacity-90 active:scale-[0.97]"
-            style="background-color: var(--t-secondary); color: var(--t-dark); min-height: 52px;"
+            class="flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 sm:px-6 sm:py-4 font-bold text-sm sm:text-base transition-all duration-200 hover:opacity-90 active:scale-[0.97]"
+            style="background-color: var(--t-secondary); color: var(--t-dark); min-height: 48px;"
             data-tracking="click-whatsapp-hero-primary"
             data-section="hero"
           >
@@ -81,8 +81,8 @@ const benefits = [
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 rounded-xl px-6 py-4 font-semibold text-base transition-all duration-200 hover:bg-white/10"
-            style="border: 2px solid rgba(255,255,255,0.35); color: white; min-height: 52px;"
+            class="flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 sm:px-6 sm:py-4 font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-white/10"
+            style="border: 2px solid rgba(255,255,255,0.35); color: white; min-height: 48px;"
             data-tracking="click-whatsapp-hero-secondary"
             data-section="hero"
           >

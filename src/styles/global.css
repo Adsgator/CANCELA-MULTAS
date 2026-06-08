@@ -61,8 +61,13 @@
 
 /* ── Utilitários de layout ───────────────── */
 @utility section-py {
-  padding-top: 4.5rem;
-  padding-bottom: 4.5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  @media (min-width: 640px) {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
 
   @media (min-width: 768px) {
     padding-top: 6rem;

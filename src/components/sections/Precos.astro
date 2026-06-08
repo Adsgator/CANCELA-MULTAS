@@ -45,7 +45,7 @@ const nota =
   style="background-color: var(--t-surface-alt);"
 >
   <div class="container-wide">
-    <div class="text-center mb-4 container-content mx-auto">
+    <div class="text-center mb-4 sm:mb-6 container-content mx-auto">
       <div
         class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold mb-6"
         style="background-color: var(--t-secondary); color: var(--t-dark);"
@@ -66,11 +66,11 @@ const nota =
       </p>
     </div>
 
-    <div class="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-8">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 max-w-3xl mx-auto mb-8 pt-4 sm:pt-6">
       {planos.map((p) => (
         <article
-          class="rounded-2xl p-7 flex flex-col items-center text-center relative overflow-hidden transition-shadow duration-200 hover:shadow-xl"
-          style={`background-color: ${p.destaque ? 'var(--t-primary)' : 'var(--t-surface)'}; border: 2px solid ${p.destaque ? 'var(--t-primary)' : 'var(--t-border)'}; transform: ${p.destaque ? 'scale(1.04)' : 'scale(1)'};`}
+          class={`rounded-2xl p-5 sm:p-7 flex flex-col items-center text-center relative transition-shadow duration-200 hover:shadow-xl${p.destaque ? ' sm:scale-[1.04] sm:-mx-1' : ''}`}
+          style={`background-color: ${p.destaque ? 'var(--t-primary)' : 'var(--t-surface)'}; border: 2px solid ${p.destaque ? 'var(--t-primary)' : 'var(--t-border)'};`}
         >
           {p.badge && (
             <span
@@ -82,13 +82,13 @@ const nota =
           )}
 
           <h3
-            class="font-serif font-bold text-base mb-5 mt-2"
+            class="font-serif font-bold text-base mb-5 mt-4"
             style={`color: ${p.destaque ? 'rgba(255,255,255,0.75)' : 'var(--t-text-soft)'};`}
           >
             {p.nome}
           </h3>
 
-          <div class="text-4xl font-black mb-1" style={`color: ${p.destaque ? 'white' : 'var(--t-primary)'};`}>
+          <div class="text-3xl sm:text-4xl font-black mb-1" style={`color: ${p.destaque ? 'white' : 'var(--t-primary)'};`}>
             {p.preco}
           </div>
           <p class="text-xs mb-5" style={`color: ${p.destaque ? 'rgba(255,255,255,0.5)' : 'var(--t-text-muted)'};`}>
@@ -118,7 +118,7 @@ const nota =
     </div>
 
     <div
-      class="max-w-2xl mx-auto rounded-xl p-5 text-center mb-8"
+      class="max-w-2xl mx-auto rounded-xl p-4 sm:p-5 text-center mb-8"
       style="background-color: var(--t-surface); border: 1px solid var(--t-border);"
     >
       <p class="text-sm leading-relaxed" style="color: var(--t-text-soft);">

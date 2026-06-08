@@ -38,7 +38,7 @@ const perguntas = [
 >
   <div class="container-wide">
     <div class="container-content mx-auto">
-      <div class="text-center mb-10">
+      <div class="text-center mb-7 sm:mb-10">
         <h2 class="font-serif text-display-sm mb-4" style="color: var(--t-text-main);">
           Perguntas Frequentes
         </h2>
@@ -55,7 +55,7 @@ const perguntas = [
             style={`border-bottom: 1px solid var(--t-border); ${i === 0 ? 'border-top: 1px solid var(--t-border);' : ''}`}
           >
             <button
-              class="faq-trigger w-full flex items-center justify-between gap-4 py-5 text-left font-semibold text-base cursor-pointer"
+              class="faq-trigger w-full flex items-center justify-between gap-3 py-4 sm:py-5 text-left font-semibold text-sm sm:text-base cursor-pointer"
               aria-expanded="false"
               style="color: var(--t-text-main); background: none; border: none; padding-inline: 0;"
             >
@@ -81,7 +81,7 @@ const perguntas = [
               class="faq-content overflow-hidden"
               style="max-height: 0; transition: max-height 0.35s ease;"
             >
-              <p class="pb-5 text-sm leading-relaxed" style="color: var(--t-text-soft);">
+              <p class="pb-4 sm:pb-5 text-sm leading-relaxed" style="color: var(--t-text-soft);">
                 {item.a}
               </p>
             </div>
@@ -89,7 +89,7 @@ const perguntas = [
         ))}
       </div>
 
-      <div class="text-center mt-10">
+      <div class="text-center mt-8 sm:mt-10">
         <p class="text-sm mb-4" style="color: var(--t-text-soft);">
           Não encontrou sua dúvida? Fale diretamente com a gente:
         </p>
