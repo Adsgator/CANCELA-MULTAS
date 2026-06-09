@@ -3,7 +3,7 @@
 // Tem header e footer embutidos em estilo inline para ser completamente autossuficiente.
 //
 // Número e mensagem vêm de .env (mesmas vars do WhatsAppFloat.astro).
-const waNumber = import.meta.env.PUBLIC_WA_NUMBER || "SEUNUMERO";
+const waNumber = import.meta.env.PUBLIC_WA_NUMBER || "5548996729999";
 const waMessage =
   import.meta.env.PUBLIC_WA_MESSAGE || "Olá! Vi seu site e gostaria de mais informações.";
 const WA_LINK = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
