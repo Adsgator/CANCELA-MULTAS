@@ -293,6 +293,11 @@ html.lenis body {
   overflow: hidden;
 }
 
+/* ── Logo adaptativa (light/dark) ── */
+.logo-dark { display: none; }
+.dark .logo-light { display: none; }
+.dark .logo-dark { display: block; }
+
 /* ── ANIMAÇÕES DE ENTRADA (GSAP/ScrollAnimations) ── */
 [data-animate] {
   opacity: 0;

@@ -14,14 +14,20 @@ interface Plano {
 
 const planos: Plano[] = [
   {
+    nome: "Infração Leve",
+    preco: "R$ 70,00",
+    descricao: "Recurso administrativo para infrações de natureza leve.",
+    ctaTexto: "Quero Recorrer",
+  },
+  {
     nome: "Infração Média",
-    preco: "R$ 40,00",
+    preco: "R$ 100,00",
     descricao: "Recurso administrativo para infrações de natureza média.",
     ctaTexto: "Quero Recorrer",
   },
   {
     nome: "Infração Grave",
-    preco: "R$ 80,00",
+    preco: "R$ 120,00",
     descricao: "Recurso administrativo para infrações de natureza grave.",
     ctaTexto: "Quero Recorrer",
     destaque: true,
@@ -29,14 +35,16 @@ const planos: Plano[] = [
   },
   {
     nome: "Infração Gravíssima",
-    preco: "R$ 120,00",
+    preco: "R$ 280,00",
     descricao: "Recurso administrativo para infrações gravíssimas sem efeito suspensivo.",
     ctaTexto: "Quero Recorrer",
   },
 ];
 
+// Processos de suspensão (PSDD), cassação (PCDD) e processo único/concomitante
+// têm valores maiores (a partir de R$ 1.800,00) e são orçados individualmente.
 const nota =
-  "Processos com efeito suspensivo, suspensão (PSDD), cassação (PCDD) e outros casos específicos são orçados individualmente após análise gratuita. Nenhuma surpresa, sempre transparência.";
+  "Processos com efeito suspensivo, suspensão de CNH (PSDD), cassação (PCDD), processo único/concomitante e outros casos específicos são orçados individualmente após análise gratuita. Nenhuma surpresa, sempre transparência.";
 ---
 
 <section
@@ -66,10 +74,10 @@ const nota =
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 max-w-3xl mx-auto mb-8 pt-4 sm:pt-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-5xl mx-auto mb-8 pt-4 sm:pt-6">
       {planos.map((p) => (
         <article
-          class={`rounded-2xl p-5 sm:p-7 flex flex-col items-center text-center relative transition-shadow duration-200 hover:shadow-xl${p.destaque ? ' sm:scale-[1.04] sm:-mx-1' : ''}`}
+          class={`rounded-2xl p-5 sm:p-7 flex flex-col items-center text-center relative transition-shadow duration-200 hover:shadow-xl${p.destaque ? ' sm:scale-[1.03]' : ''}`}
           style={`background-color: ${p.destaque ? 'var(--t-primary)' : 'var(--t-surface)'}; border: 2px solid ${p.destaque ? 'var(--t-primary)' : 'var(--t-border)'};`}
         >
           {p.badge && (
